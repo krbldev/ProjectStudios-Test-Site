@@ -6,9 +6,9 @@ toggleBtn.addEventListener('click', () => {
 });
 
 function displayLatestUploads() {
-    const apiKey = 'AIzaSyDA_fc5_0ZPUF12ut2C4msU2u9L2EQMYa8';
-    const channelId = 'UCh74b6IJKEZIaC15BxK-ZiA';
-    const maxResults = 6;
+  const apiKey = 'AIzaSyDA_fc5_0ZPUF12ut2C4msU2u9L2EQMYa8';
+  const channelId = 'UCkMtiVMWbxNVdM1fE4imeLw';
+  const maxResults = 9;
 
   gapi.client.youtube.search.list({
     key: apiKey,
@@ -64,7 +64,7 @@ function displayLatestUploads() {
 function loadYouTubeAPI() {
   gapi.load('client', () => {
     gapi.client.init({
-      'apiKey': 'AIzaSyDA_fc5_0ZPUF12ut2C4msU2u9L2EQMYa8',
+    'apiKey': 'AIzaSyDA_fc5_0ZPUF12ut2C4msU2u9L2EQMYa8',
       'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest']
     }).then(() => {
       displayLatestUploads();
