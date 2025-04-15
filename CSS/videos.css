@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('../Images/minimalist-city-sunset-buildings-uhdpaper.com-4K-8.1390-wp.thumbnail.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: transparent;
+    backdrop-filter: blur(40px);
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 6px 14px;
+    transition: 0.5s;
+    z-index: 2;
+}
+
+.sidebar.active {
+    width: 260px;
+}
+
+.sidebar .logo-menu {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+.sidebar .logo-menu .logo {
+    font-size: 25px;
+    color: #fff;
+    pointer-events: none;
+    opacity: 0;
+    transition: .3s;
+}
+
+.sidebar.active .logo-menu .logo {
+    opacity: 1;
+    transition-delay: .2s;
+}
+
+.sidebar .logo-menu .toggle-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.sidebar.active .logo-menu .toggle-btn {
+    left: 90%;
+}
+
+.sidebar .list {
+    margin-top: 10px;
+}
+
+.list .list-item {
+    list-style: none;
+    width: 100%;
+    height: 50px;
+    margin: 5px 0;
+    line-height: 50px;
+}
+
+.list .list-item a {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    white-space: nowrap;
+    transition: .5s;
+}
+
+.list .list-item.active a,
+.list .list-item a:hover {
+    background: rgba(255, 255, 255, .2);
+}
+
+.list .list-item a i {
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+}
+
+.sidebar .link-name {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+}
+
+.sidebar.active .link-name {
+    opacity: 1;
+    pointer-events: auto;
+    transition-delay: calc(.1s * var(--i));
+}
+
+main {
+    position: relative;
+    margin-top: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 80px;
+    padding: 20px;
+    transition: margin-left 0.5s;
+    text-decoration: none;
+}
+
+main h1 {
+    font-size: 60px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.sidebar.active ~ main {
+    margin-left: 260px;
+}
+
+#uploads-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin: 40px;
+    z-index: 1;
+    text-decoration: none;
+}
+
+.upload-card {
+    width: 100%;
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.upload-card:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+}
+
+.upload-card img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    text-decoration: none;
+}
+
+.upload-card-content {
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.upload-card-content h4 {
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.upload-card-content a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #162938;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.upload-card-content a:hover {
+    background-color: #0b1720;
+    text-decoration: none;
+}
+  
+.upload-card-content a:link,
+.upload-card-content a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
+}
+
+body::-webkit-scrollbar-thumb:active {
+    background-color: #999;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none !important;
+    color: inherit;
+}

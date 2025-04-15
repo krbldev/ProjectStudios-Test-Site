@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../Images/minimalist-city-sunset-buildings-uhdpaper.com-4K-8.1390-wp.thumbnail.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+}
+
+.navigation a {
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.header {
+    margin: 90px 0;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 999;
+}
+
+.header h1 {
+    font-size: 65px;
+    text-align: center;
+}
+
+.intro {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    backdrop-filter: blur(50px);
+    height: 90vh;
+    width: 90vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    z-index: 999;
+    border: 1px solid #162938;
+}
+
+.intro,
+.mission,
+.vision,
+.philosophy,
+.description {
+    margin: 90px 0;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+    backdrop-filter: blur(15px);
+    height: 70vh;
+    width: 70vw;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 999;
+}
+
+.intro p,
+.mission p,
+.vision p,
+.philosophy p,
+.description p {
+    width: 600px;
+    font-size: 15px;
+    transform: translateY(25%);
+    line-height: 20px;
+    text-align: left;
+}
+
+.intro p a,
+.mission p a,
+.vision p a,
+.philosophy p a
+.description p a {
+    color: #fff;
+    font-size: 18px;
+}
+
+.intro h1,
+.mission h1,
+.vision h1,
+.philosophy h1,
+.description {
+    font-size: 65px;
+    text-align: center;
+}
