@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.warn("User not logged in. Redirecting...");
       setTimeout(() => {
         window.location.href = "../index.html";
-      }, 500);
+      }, 100);
     }
   });
 
