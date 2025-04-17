@@ -9,8 +9,7 @@ import {
   getDatabase,
   ref,
   get,
-  set,
-  child
+  set
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-database.js";
 
 const firebaseConfig = {
@@ -38,32 +37,37 @@ document.addEventListener("DOMContentLoaded", () => {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const uid = user.uid;
-      const displayName = user.displayName || "Unknown";
-      const email = user.email || "Unknown";
+      const displayName = user.displayName || "Unknown User";
+      const email = user.email || "No Email";
+      const photoURL = user.photoURL || null;
 
-      usernameEl.textContent = displayName;
-      emailEl.textContent = email;
-      nameEl.textContent = displayName;
-      if (user.photoURL) avatarEl.src = user.photoURL;
+      if (usernameEl) usernameEl.textContent = displayName;
+      if (emailEl) emailEl.textContent = email;
+      if (nameEl) nameEl.textContent = displayName;
+      if (avatarEl && photoURL) avatarEl.src = photoURL;
 
-      const userRef = ref(db, `users/${uid}`);
-      const snapshot = await get(userRef);
-      if (!snapshot.exists()) {
-        await set(userRef, {
-          username: displayName,
-          email: email,
-          avatar: user.photoURL || null
-        });
-        console.log("User profile saved to Realtime Database.");
-      } else {
-        console.log("User already exists in database.");
+      try {
+        const userRef = ref(db, `users/${uid}`);
+        const snapshot = await get(userRef);
+        if (!snapshot.exists()) {
+          await set(userRef, {
+            username: displayName,
+            email: email,
+            avatar: photoURL
+          });
+          console.log("User profile saved to database.");
+        } else {
+          console.log("User already exists in database.");
+        }
+      } catch (error) {
+        console.error("Error accessing user data:", error.message);
       }
 
     } else {
-      console.warn("User not logged in. Redirecting...");
+      console.warn("User not logged in. Redirecting to login...");
       setTimeout(() => {
         window.location.href = "../index.html";
-      }, 50);
+      }, 100);
     }
   });
 
